@@ -8,20 +8,18 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class restaurant_loginregister extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_restaurant_loginregister);
 
-        Button client = (Button) findViewById(R.id.main_client);
-        Button restaurant = (Button) findViewById(R.id.main_restaurant);
-        Button delivery = (Button) findViewById(R.id.main_delivery);
+        Button login = (Button) findViewById(R.id.restaurant_login);
+        Button register = (Button) findViewById(R.id.restaurant_register);
         ArrayList<Button> liste = new ArrayList<>();
-        liste.add(client);
-        liste.add(restaurant);
-
+        liste.add(login);
+        liste.add(register);
         // -----------------
         // ----- STYLE -----
         // -----------------
@@ -32,18 +30,12 @@ public class MainActivity extends AppCompatActivity {
         // -------------------
         // ----- ONCLICK -----
         // -------------------
-        client.setOnClickListener(v -> {
-            Intent intent = new Intent(this,client_login.class);
+        login.setOnClickListener(v -> {
+            Intent intent = new Intent(this,restaurant_login.class);
             startActivity(intent);
         });
-
-        delivery.setOnClickListener(v -> {
-            Intent intent = new Intent(this,delivery_login.class);
-            startActivity(intent);
-        });
-
-        restaurant.setOnClickListener(v -> {
-            Intent intent = new Intent(this,restaurant_loginregister.class);
+        register.setOnClickListener(v -> {
+            Intent intent = new Intent(this,restaurant_register.class);
             startActivity(intent);
         });
     }

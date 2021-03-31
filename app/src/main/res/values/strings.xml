@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">CMax</string>
+    <string name="app_name">Bref, mange.</string>
+    <string name="main_client">J\'ai faim</string>
+    <string name="main_delivery">Je m\'inscris pour faire des livraisons</string>
+    <string name="main_restaurant">J\'ai un restaurant</string>
+    <string name="client_phonenumber">Numéro de téléphone</string>
+    <string name="client_gps">GPS</string>
+    <string name="confirm">Valider</string>
+    <string name="restaurant_login">Connexion</string>
+    <string name="restaurant_register">Inscription</string>
+    <string name="restaurant_entername">Nom du restaurant</string>
+    <string name="restaurant_enterpassword">Mot de passe</string>
+    <string name="restaurant_enteradress">Adresse</string>
+    <string name="restaurant_enterphone">Numéro de téléphone</string>
 </resources>

@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMax">
+        <activity android:name=".restaurant_register"></activity>
+        <activity android:name=".restaurant_login" />
+        <activity android:name=".restaurant_loginregister" />
+        <activity android:name=".delivery_login" />
+        <activity android:name=".client_login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

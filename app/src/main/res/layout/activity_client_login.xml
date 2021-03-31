@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:hint="@string/client_phonenumber"
+        app:startIconDrawable="@drawable/baseline_phone_black_18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title">
@@ -49,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:hint="@string/client_gps"
-
+        app:startIconDrawable="@drawable/baseline_location_on_black_18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/client_phonenumber">

@@ -12,4 +12,5 @@
     <string name="restaurant_enterpassword">Mot de passe</string>
     <string name="restaurant_enteradress">Adresse</string>
     <string name="restaurant_enterphone">Numéro de téléphone</string>
+    <string name="client_search">Rechercher</string>
 </resources>

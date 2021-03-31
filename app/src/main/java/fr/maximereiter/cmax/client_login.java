@@ -24,5 +24,12 @@ public class client_login extends AppCompatActivity {
             b.setBackgroundColor(getResources().getColor(R.color.primary));
             b.setTextColor(getResources().getColor(R.color.white));
         }
+        // -------------------
+        // ----- ONCLICK -----
+        // -------------------
+        confirm.setOnClickListener(v -> {
+            Intent intent = new Intent(this,client_primary.class);
+            startActivity(intent);
+        });
     }
 }

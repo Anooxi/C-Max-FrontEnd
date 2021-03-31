@@ -13,4 +13,6 @@
     <string name="restaurant_enteradress">Adresse</string>
     <string name="restaurant_enterphone">Numéro de téléphone</string>
     <string name="client_search">Rechercher</string>
+    <string name="nav_drawer_open">Ouvrir</string>
+    <string name="nav_drawer_close">Fermer</string>
 </resources>

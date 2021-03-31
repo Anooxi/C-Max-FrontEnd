@@ -15,4 +15,7 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
+    <style name="Theme.App" parent="Theme.CMax">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
 </resources>

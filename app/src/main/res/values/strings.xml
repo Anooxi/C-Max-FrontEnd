@@ -15,4 +15,7 @@
     <string name="client_search">Rechercher</string>
     <string name="nav_drawer_open">Ouvrir</string>
     <string name="nav_drawer_close">Fermer</string>
+    <string name="panier">Panier</string>
+    <string name="historique">Historique</string>
+    <string name="r_clamation">Réclamation</string>
 </resources>

@@ -1,4 +1,4 @@
-package fr.maximereiter.cmax;
+package fr.desgenetezreiter.cmax.client;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -18,6 +16,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import fr.desgenetezreiter.cmax.R;
 
 
 public class client_primary extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

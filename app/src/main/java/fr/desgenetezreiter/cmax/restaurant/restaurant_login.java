@@ -1,4 +1,4 @@
-package fr.maximereiter.cmax;
+package fr.desgenetezreiter.cmax.restaurant;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import java.util.ArrayList;
+
+import fr.desgenetezreiter.cmax.R;
 
 public class restaurant_login extends AppCompatActivity {
 

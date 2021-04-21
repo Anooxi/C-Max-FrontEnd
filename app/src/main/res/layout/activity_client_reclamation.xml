@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client_reclamation">
+    tools:context=".client.client_reclamation">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

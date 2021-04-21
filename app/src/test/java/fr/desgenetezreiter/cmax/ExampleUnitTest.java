@@ -1,4 +1,4 @@
-package fr.maximereiter.cmax;
+package fr.desgenetezreiter.cmax;
 
 import org.junit.Test;
 

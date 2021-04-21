@@ -1,8 +1,10 @@
-package fr.maximereiter.cmax;
+package fr.desgenetezreiter.cmax.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import fr.desgenetezreiter.cmax.R;
 
 public class client_reclamation extends AppCompatActivity {
 

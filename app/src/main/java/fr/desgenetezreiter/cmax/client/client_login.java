@@ -1,4 +1,4 @@
-package fr.maximereiter.cmax;
+package fr.desgenetezreiter.cmax.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,18 +8,17 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class restaurant_loginregister extends AppCompatActivity {
+import fr.desgenetezreiter.cmax.R;
+
+public class client_login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_loginregister);
-
-        Button login = (Button) findViewById(R.id.restaurant_login);
-        Button register = (Button) findViewById(R.id.restaurant_register);
+        setContentView(R.layout.activity_client_login);
+        Button confirm = (Button) findViewById(R.id.confirm_button);
         ArrayList<Button> liste = new ArrayList<>();
-        liste.add(login);
-        liste.add(register);
+        liste.add(confirm);
         // -----------------
         // ----- STYLE -----
         // -----------------
@@ -30,12 +29,8 @@ public class restaurant_loginregister extends AppCompatActivity {
         // -------------------
         // ----- ONCLICK -----
         // -------------------
-        login.setOnClickListener(v -> {
-            Intent intent = new Intent(this,restaurant_login.class);
-            startActivity(intent);
-        });
-        register.setOnClickListener(v -> {
-            Intent intent = new Intent(this,restaurant_register.class);
+        confirm.setOnClickListener(v -> {
+            Intent intent = new Intent(this,client_primary.class);
             startActivity(intent);
         });
     }

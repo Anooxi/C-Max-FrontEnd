@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import java.util.ArrayList;
 import fr.desgenetezreiter.cmax.client.Client_login;
+import fr.desgenetezreiter.cmax.client.Client_loginregister;
 import fr.desgenetezreiter.cmax.delivery.Delivery_login;
 import fr.desgenetezreiter.cmax.restaurant.Restaurant_loginregister;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // ----- ONCLICK -----
         // -------------------
         client.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Client_login.class);
+            Intent intent = new Intent(this, Client_loginregister.class);
             startActivity(intent);
         });
 

@@ -22,4 +22,15 @@
     <string name="homepage">Page principale</string>
     <string name="reclamation">Réclamation</string>
     <string name="pendingorders">Commandes en cours</string>
+    <string name="mail">E-mail</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="client_register">S\'enregistrer</string>
+    <string name="prenom">Prénom</string>
+    <string name="nom">Nom</string>
+    <string name="ville">Ville</string>
+    <string name="code_postal">Code postal</string>
+    <string name="addresse">Addresse</string>
+    <string name="telephone">Numéro de téléphone</string>
+    <string name="pays">Pays</string>
+    <string name="adresse">Adresse</string>
 </resources>

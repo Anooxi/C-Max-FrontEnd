@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import java.util.ArrayList;
-import fr.desgenetezreiter.cmax.client.client_login;
-import fr.desgenetezreiter.cmax.delivery.delivery_login;
-import fr.desgenetezreiter.cmax.restaurant.restaurant_loginregister;
+import fr.desgenetezreiter.cmax.client.Client_login;
+import fr.desgenetezreiter.cmax.delivery.Delivery_login;
+import fr.desgenetezreiter.cmax.restaurant.Restaurant_loginregister;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,17 +34,17 @@ public class MainActivity extends AppCompatActivity {
         // ----- ONCLICK -----
         // -------------------
         client.setOnClickListener(v -> {
-            Intent intent = new Intent(this, client_login.class);
+            Intent intent = new Intent(this, Client_login.class);
             startActivity(intent);
         });
 
         delivery.setOnClickListener(v -> {
-            Intent intent = new Intent(this, delivery_login.class);
+            Intent intent = new Intent(this, Delivery_login.class);
             startActivity(intent);
         });
 
         restaurant.setOnClickListener(v -> {
-            Intent intent = new Intent(this, restaurant_loginregister.class);
+            Intent intent = new Intent(this, Restaurant_loginregister.class);
             startActivity(intent);
         });
     }

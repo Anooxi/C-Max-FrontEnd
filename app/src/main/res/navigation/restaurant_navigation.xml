@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/restaurant_client"
+    app:startDestination="@id/restaurant_frag_primary">
+    <fragment
+        android:id="@+id/restaurant_frag_primary"
+        android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_primary"
+        android:label="@string/homepage"
+        tools:layout="@layout/fragment_restaurant_frag_primary" >
+        <action
+            android:id="@+id/action_restaurant_frag_primary_to_restaurant_frag_historique"
+            app:destination="@id/restaurant_frag_historique" />
+        <action
+            android:id="@+id/action_restaurant_frag_primary_to_restaurant_frag_commandes"
+            app:destination="@id/restaurant_frag_commandes" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurant_frag_historique"
+        android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_historique"
+        android:label="@string/historique"
+        tools:layout="@layout/fragment_restaurant_frag_historique" />
+    <fragment
+        android:id="@+id/restaurant_frag_commandes"
+        android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_commandes"
+        android:label="@string/pendingorders"
+        tools:layout="@layout/fragment_restaurant_frag_commandes" />
+</navigation>

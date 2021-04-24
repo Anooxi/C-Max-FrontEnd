@@ -2,6 +2,7 @@ package fr.desgenetezreiter.cmax.restaurant;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 import fr.desgenetezreiter.cmax.R;
 
-public class restaurant_login extends AppCompatActivity {
+public class Restaurant_login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +26,10 @@ public class restaurant_login extends AppCompatActivity {
             b.setBackgroundColor(getResources().getColor(R.color.primary));
             b.setTextColor(getResources().getColor(R.color.white));
         }
+
+        confirm.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Restaurant_primary.class);
+            startActivity(intent);
+        });
     }
 }

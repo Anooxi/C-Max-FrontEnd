@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:id="@+id/action_client_frag_primary_to_client_frag_panier"
+            android:icon="@drawable/outline_shopping_cart_24"
+            android:title="@string/panier" />
+        <item android:id="@+id/action_client_frag_primary_to_client_frag_historique"
+            android:icon="@drawable/outline_history_24"
+            android:title="@string/historique" />
+        <item android:id="@+id/action_client_frag_primary_to_client_frag_reclamation"
+            android:icon="@drawable/outline_credit_card_24"
+            android:title="@string/r_clamation" />
+    </group>
+</menu>

@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/restaurant_drawer_layout"
     tools:openDrawer="start"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
     <include
-        layout="@layout/client_app_bar"
+        layout="@layout/restaurant_app_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/restaurant_nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/client_drawer" />
+        app:menu="@menu/restaurant_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

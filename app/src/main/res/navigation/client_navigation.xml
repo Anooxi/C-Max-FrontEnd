@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/client_frag_primary">
+
+    <fragment
+        android:id="@+id/client_frag_primary"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_primary"
+        android:label="@string/homepage"
+        tools:layout="@layout/fragment_client_frag_primary" >
+        <action
+            android:id="@+id/action_client_frag_primary_to_client_frag_panier"
+            app:destination="@id/client_frag_panier" />
+        <action
+            android:id="@+id/action_client_frag_primary_to_client_frag_historique"
+            app:destination="@id/client_frag_historique" />
+        <action
+            android:id="@+id/action_client_frag_primary_to_client_frag_reclamation"
+            app:destination="@id/client_frag_reclamation" />
+    </fragment>
+    <fragment
+        android:id="@+id/client_frag_panier"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_panier"
+        android:label="@string/panier"
+        tools:layout="@layout/fragment_client_frag_panier" />
+    <fragment
+        android:id="@+id/client_frag_historique"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_historique"
+        android:label="@string/historique"
+        tools:layout="@layout/fragment_client_frag_historique" />
+    <fragment
+        android:id="@+id/client_frag_reclamation"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_reclamation"
+        android:label="@string/reclamation"
+        tools:layout="@layout/fragment_client_frag_reclamation" />
+</navigation>

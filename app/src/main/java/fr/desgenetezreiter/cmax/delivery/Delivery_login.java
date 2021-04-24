@@ -1,4 +1,4 @@
-package fr.desgenetezreiter.cmax.client;
+package fr.desgenetezreiter.cmax.delivery;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,19 +9,23 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 import fr.desgenetezreiter.cmax.R;
+import fr.desgenetezreiter.cmax.client.Client_primary;
 
-public class client_login extends AppCompatActivity {
+public class Delivery_login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_login);
+        setContentView(R.layout.activity_delivery_login);
+
         Button confirm = (Button) findViewById(R.id.confirm_button);
         ArrayList<Button> liste = new ArrayList<>();
         liste.add(confirm);
+
         // -----------------
         // ----- STYLE -----
         // -----------------
+
         for (Button b : liste){
             b.setBackgroundColor(getResources().getColor(R.color.primary));
             b.setTextColor(getResources().getColor(R.color.white));
@@ -30,7 +34,7 @@ public class client_login extends AppCompatActivity {
         // ----- ONCLICK -----
         // -------------------
         confirm.setOnClickListener(v -> {
-            Intent intent = new Intent(this,client_primary.class);
+            Intent intent = new Intent(this, Delivery_primary.class);
             startActivity(intent);
         });
     }

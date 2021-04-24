@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/delivery_navigation"
+    app:startDestination="@id/delivery_frag_primary">
+
+    <fragment
+        android:id="@+id/delivery_frag_primary"
+        android:name="fr.desgenetezreiter.cmax.delivery.Delivery_frag_primary"
+        android:label="@string/homepage"
+        tools:layout="@layout/fragment_delivery_frag_primary" >
+        <action
+            android:id="@+id/action_delivery_frag_primary_to_delivery_frag_commandes"
+            app:destination="@id/delivery_frag_commandes" />
+        <action
+            android:id="@+id/action_delivery_frag_primary_to_delivery_frag_orders"
+            app:destination="@id/delivery_frag_orders" />
+    </fragment>
+    <fragment
+        android:id="@+id/delivery_frag_commandes"
+        android:name="fr.desgenetezreiter.cmax.delivery.Delivery_frag_commandes"
+        android:label="@string/pendingorders"
+        tools:layout="@layout/fragment_delivery_frag_commandes" />
+    <fragment
+        android:id="@+id/delivery_frag_orders"
+        android:name="fr.desgenetezreiter.cmax.delivery.Delivery_frag_orders"
+        android:label="@string/historique"
+        tools:layout="@layout/fragment_delivery_frag_orders" />
+</navigation>

@@ -9,16 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMax">
-        <activity android:name="fr.desgenetezreiter.cmax.client.client_reclamation"></activity>
-        <activity android:name="fr.desgenetezreiter.cmax.client.client_historique" />
-        <activity android:name="fr.desgenetezreiter.cmax.client.client_panier" />
-        <activity android:name="fr.desgenetezreiter.cmax.client.client_primary" />
-        <activity android:name="fr.desgenetezreiter.cmax.restaurant.restaurant_register" />
-        <activity android:name="fr.desgenetezreiter.cmax.restaurant.restaurant_login" />
-        <activity android:name="fr.desgenetezreiter.cmax.restaurant.restaurant_loginregister" />
-        <activity android:name="fr.desgenetezreiter.cmax.delivery.delivery_login" />
-        <activity android:name="fr.desgenetezreiter.cmax.client.client_login" />
-        <activity android:name="fr.desgenetezreiter.cmax.MainActivity">
+        <activity android:name=".delivery.Delivery_primary"></activity>
+        <activity android:name=".restaurant.Restaurant_primary" />
+        <activity android:name=".client.Client_primary" />
+        <activity android:name=".restaurant.Restaurant_register" />
+        <activity android:name=".restaurant.Restaurant_login" />
+        <activity android:name=".restaurant.Restaurant_loginregister" />
+        <activity android:name=".delivery.Delivery_login" />
+        <activity android:name=".client.Client_login" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

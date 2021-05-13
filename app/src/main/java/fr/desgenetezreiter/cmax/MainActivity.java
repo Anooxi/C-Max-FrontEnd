@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import fr.desgenetezreiter.cmax.client.Client_login;
 import fr.desgenetezreiter.cmax.client.Client_loginregister;
 import fr.desgenetezreiter.cmax.delivery.Delivery_login;
+import fr.desgenetezreiter.cmax.delivery.Delivery_loginregister;
 import fr.desgenetezreiter.cmax.restaurant.Restaurant_loginregister;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         delivery.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Delivery_login.class);
+            Intent intent = new Intent(this, Delivery_loginregister.class);
             startActivity(intent);
         });
 

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMax">
-        <activity android:name=".client.Client_register"></activity>
+        <activity android:name=".delivery.Delivery_register"></activity>
+        <activity android:name=".delivery.Delivery_loginregister" />
+        <activity android:name=".client.Client_register" />
         <activity android:name=".client.Client_loginregister" />
         <activity android:name=".delivery.Delivery_primary" />
         <activity android:name=".restaurant.Restaurant_primary" />

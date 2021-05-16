@@ -2,6 +2,10 @@ package fr.desgenetezreiter.cmax.models;
 
 public class RegisterModel {
 
+    public static String TYPE_CLIENT = "client";
+    public static String TYPE_DELIVERER = "deliverer";
+    public static String TYPE_RESTAURANT = "restaurant";
+
     private final String email;
     private final String password;
     private final String first_name;

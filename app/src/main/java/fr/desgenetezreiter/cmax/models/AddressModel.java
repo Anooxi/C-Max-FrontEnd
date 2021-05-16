@@ -10,6 +10,14 @@ public class AddressModel {
         return String.format("%s, %s, %s, %s",street,city,zip,country);
     }
 
+    public void setFullAddress(String street,String city, String zip, String country){
+        this.setCity(city);
+        this.setStreet(street);
+        this.setCountry(country);
+        this.setZip(zip);
+
+    }
+
     public String getStreet() {
         return street;
     }

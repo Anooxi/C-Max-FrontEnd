@@ -2,20 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fr.desgenetezreiter.cmax">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CMax">
-        <activity android:name=".delivery.Delivery_register"></activity>
+        <activity android:name=".delivery.Delivery_register" />
         <activity android:name=".delivery.Delivery_loginregister" />
         <activity android:name=".client.Client_register" />
         <activity android:name=".client.Client_loginregister" />
         <activity android:name=".delivery.Delivery_primary" />
         <activity android:name=".restaurant.Restaurant_primary" />
-        <activity android:name=".client.Client_primary" />
+        <activity android:name=".client.Client_primary"/>
         <activity android:name=".restaurant.Restaurant_register" />
         <activity android:name=".restaurant.Restaurant_login" />
         <activity android:name=".restaurant.Restaurant_loginregister" />

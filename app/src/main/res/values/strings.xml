@@ -34,4 +34,7 @@
     <string name="pays">Pays</string>
     <string name="adresse">Adresse</string>
     <string name="erreur_connection">Erreur lors de la connection</string>
+    <string name="unauth">Unauthorized access</string>
+    <string name="err">An error occurred</string>
+    <string name="command">Commander</string>
 </resources>

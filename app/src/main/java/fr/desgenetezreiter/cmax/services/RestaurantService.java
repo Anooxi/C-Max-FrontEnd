@@ -9,5 +9,5 @@ import retrofit2.http.Header;
 
 public interface RestaurantService {
     @GET("restaurants")
-    Call<ArrayList<UserModel>> getRestaurant(@Header("Authorization") String token);
+    Call<ArrayList<UserModel>> getRestaurants(@Header("Authorization") String token);
 }

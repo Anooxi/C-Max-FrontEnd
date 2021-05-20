@@ -19,6 +19,9 @@ public class RestaurantViewModel extends ViewModel {
     private RestaurantService restaurantService = HttpClient.getInstance().getRestaurantService();
     private MutableLiveData<ArrayList<UserModel>> restaurantList;
     private MutableLiveData<UserModel> currentRestaurant;
+    private MutableLiveData<ArrayList<MenuModel>> currentRestaurantMenus;
+    private MutableLiveData<ArrayList<ProductModel>> currentRestaurantsProducts;
+
 
 
     public MutableLiveData<ArrayList<UserModel>> getRestaurantList() {
@@ -77,5 +80,65 @@ public class RestaurantViewModel extends ViewModel {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public MutableLiveData<ArrayList<MenuModel>> getCurrentRestaurantMenus() {
+        if(currentRestaurantMenus == null){
+            currentRestaurantMenus = new MutableLiveData<>();
+        }
+        return currentRestaurantMenus;
+    }
+
+    public void setCurrentRestaurantMenus(ArrayList<MenuModel> newMenus) {
+        if(currentRestaurantMenus == null){
+            currentRestaurantMenus = new MutableLiveData<>();
+        }
+        this.currentRestaurantMenus.setValue(newMenus);
+    }
+
+    public MutableLiveData<ArrayList<ProductModel>> getCurrentRestaurantsProducts() {
+        if(currentRestaurantsProducts == null){
+            currentRestaurantsProducts = new MutableLiveData<>();
+        }
+        return currentRestaurantsProducts;
+    }
+
+    public void setCurrentRestaurantsProducts(ArrayList<ProductModel> newProducts) {
+        if(currentRestaurantsProducts == null){
+            currentRestaurantsProducts = new MutableLiveData<>();
+        }
+        this.currentRestaurantsProducts.setValue(newProducts);
+    }
+
+    public void getMenus(String token, String restaurant_id){
+        restaurantService.getMenus("Bearer "+token,restaurant_id).enqueue(new Callback<ArrayList<MenuModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<MenuModel>> call, Response<ArrayList<MenuModel>> response) {
+                if(response.isSuccessful()){
+                    setCurrentRestaurantMenus(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<MenuModel>> call, Throwable t) {
+                setCurrentRestaurantMenus(null);
+            }
+        });
+    }
+
+    public void getProducts(String token, String restaurant_id){
+        restaurantService.getProducts("Bearer " + token, restaurant_id).enqueue(new Callback<ArrayList<ProductModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ProductModel>> call, Response<ArrayList<ProductModel>> response) {
+                if(response.isSuccessful()){
+                    setCurrentRestaurantsProducts(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<ProductModel>> call, Throwable t) {
+                setCurrentRestaurantsProducts(null);
+            }
+        });
     }
 }

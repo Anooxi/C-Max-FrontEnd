@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_client_frag_primary_to_client_frag_reclamation"
             app:destination="@id/client_frag_reclamation" />
+        <action
+            android:id="@+id/action_client_frag_primary_to_client_frag_restaurant_details"
+            app:destination="@id/client_frag_restaurant_details" />
     </fragment>
     <fragment
         android:id="@+id/client_frag_panier"
@@ -35,4 +38,18 @@
         android:name="fr.desgenetezreiter.cmax.client.Client_frag_reclamation"
         android:label="@string/reclamation"
         tools:layout="@layout/fragment_client_frag_reclamation" />
+    <fragment
+        android:id="@+id/client_frag_restaurant_details"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_restaurant_details"
+        android:label="Détails restaurant"
+        tools:layout="@layout/fragment_client_frag_restaurant_details" >
+        <action
+            android:id="@+id/action_client_frag_restaurant_details_to_client_frag_menu_details"
+            app:destination="@id/client_frag_menu_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/client_frag_menu_details"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_menu_details"
+        android:label="Détails menu"
+        tools:layout="@layout/fragment_client_frag_menu_details" />
 </navigation>

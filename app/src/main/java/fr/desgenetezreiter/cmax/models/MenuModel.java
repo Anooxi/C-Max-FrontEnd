@@ -1,11 +1,13 @@
 package fr.desgenetezreiter.cmax.models;
 
+import java.util.ArrayList;
+
 public class MenuModel {
     private Object _id;
     private String name;
     private String description;
     private String img_url;;
-    private ProductModel[] products;
+    private ArrayList<ProductResult> products;
     private String category;
 
     public Object get_id() {
@@ -40,13 +42,6 @@ public class MenuModel {
         this.img_url = img_url;
     }
 
-    public ProductModel[] getProducts() {
-        return products;
-    }
-
-    public void setProducts(ProductModel[] products) {
-        this.products = products;
-    }
 
     public String getCategory() {
         return category;
@@ -54,5 +49,13 @@ public class MenuModel {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public ArrayList<ProductResult> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<ProductResult> products) {
+        this.products = products;
     }
 }

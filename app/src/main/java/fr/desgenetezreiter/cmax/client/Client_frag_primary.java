@@ -8,6 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Layout;
 import android.util.Log;
@@ -32,12 +35,14 @@ import java.util.ArrayList;
 import fr.desgenetezreiter.cmax.GlobalMethods;
 import fr.desgenetezreiter.cmax.MainActivity;
 import fr.desgenetezreiter.cmax.R;
+import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListener;
+import fr.desgenetezreiter.cmax.adapters.RestaurantAdapter;
 import fr.desgenetezreiter.cmax.models.AuthResult;
 import fr.desgenetezreiter.cmax.models.RestaurantViewModel;
 import fr.desgenetezreiter.cmax.models.UserModel;
 import fr.desgenetezreiter.cmax.models.UserViewModel;
 
-public class Client_frag_primary extends Fragment {
+public class Client_frag_primary extends Fragment implements RecycleViewOnClickListener {
 
     private View view;
     private Context context;
@@ -46,13 +51,11 @@ public class Client_frag_primary extends Fragment {
     private RestaurantViewModel restaurantViewModel;
     private AuthResult currentUser;
 
-    private HorizontalScrollView horizontalScrollView;
-    private LinearLayout linearLayout;
-
-    private ScrollView scrollView;
-    private LinearLayout linearLayoutRestaurants;
+    private RecyclerView recyclerView;
 
     private ArrayList<UserModel> restaurants = new ArrayList<>();
+
+
     public Client_frag_primary() {
     }
 
@@ -73,72 +76,34 @@ public class Client_frag_primary extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
         restaurantViewModel = new ViewModelProvider(requireActivity()).get(RestaurantViewModel.class);
+        recyclerView = view.findViewById(R.id.client_frag_primary_rv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(new RestaurantAdapter(context,restaurants,this));
 
         currentUser = userViewModel.getCurrentUser().getValue();
         if(currentUser == null){
-            Intent intent = new Intent(context,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            Intent intent = new Intent(context,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
 
         restaurantViewModel.getRestaurants(currentUser.token);
-        scrollView = view.findViewById(R.id.client_frag_primary_sv);
-        linearLayoutRestaurants = view.findViewById(R.id.client_frag_primary_sv_ll);
 
         // récupère la liste des restaurants
         restaurantViewModel.getRestaurantList().observe(getViewLifecycleOwner(), res -> {
             int status = restaurantViewModel.getStatus();
             if(status == GlobalMethods.SUCCESS){
                 restaurants = res;
-                //affiche les restaurants
-                for(UserModel restaurant : restaurants){
-                    createCard(restaurant);
-                }
+                recyclerView.setAdapter(new RestaurantAdapter(context,restaurants,this));
             } else if(status == GlobalMethods.FAILURE) {
                 Snackbar.make(context,view,getString(R.string.unauth),Snackbar.LENGTH_LONG).show();
             } else {
                 Snackbar.make(context,view,getString(R.string.err),Snackbar.LENGTH_LONG).show();
             }
         });
-        // On met en place la liste de bouton
-        horizontalScrollView = view.findViewById(R.id.client_frag_primary_hsv);
-        linearLayout = view.findViewById(R.id.client_frag_primary_hsv_ll);
-        ArrayList<String> categories = getCategories();
-        for (String c: categories ) {
-            MaterialButton button = new MaterialButton(context);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            lp.setMargins(20,0,20,0);
-            button.setLayoutParams(lp);
-            button.setTextColor(getResources().getColor(R.color.white, context.getTheme()));
-            button.setBackgroundColor(getResources().getColor(R.color.primary, context.getTheme()));
-            button.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            button.setText(c);
-            button.setOnClickListener(v -> {
-                Toast.makeText(context,c,Toast.LENGTH_SHORT).show();
-            });
-            linearLayout.addView(button);
-        }
 
 
-    }
 
-    private void createCard(UserModel restaurant){
-        LinearLayout llMain = new LinearLayout(context);
-        llMain.setOrientation(LinearLayout.VERTICAL);
 
-        LinearLayout llText = new LinearLayout(context);
-        TextView tv1 = new TextView(context);
-        tv1.setText(restaurant.getRestaurant_name());
-        tv1.setTextAppearance(R.style.TextAppearance_AppCompat_Headline);
-        llText.addView(tv1);
-
-        LinearLayout llBouton = new LinearLayout(context);
-        MaterialButton button = new MaterialButton(context);
-        button.setText(R.string.command);
-        llBouton.addView(button);
-
-        llMain.addView(llText);
-        llMain.addView(llBouton);
-        linearLayoutRestaurants.addView(llMain);
     }
 
     public ArrayList<String> getCategories(){
@@ -151,5 +116,11 @@ public class Client_frag_primary extends Fragment {
         categories.add("Vegan");
         categories.add("Tacos");
         return categories;
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        restaurantViewModel.setCurrentRestaurant(restaurants.get(position));
+        Navigation.findNavController(view).navigate(R.id.action_client_frag_primary_to_client_frag_restaurant_details);
     }
 }

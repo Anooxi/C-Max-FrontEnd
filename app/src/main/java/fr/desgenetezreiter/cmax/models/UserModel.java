@@ -1,7 +1,7 @@
 package fr.desgenetezreiter.cmax.models;
 
 public class UserModel {
-    private Object _id;
+    private String _id;
     private Boolean admin;
     private String type;
     private String first_name;
@@ -23,11 +23,11 @@ public class UserModel {
 
     // Get + Set
 
-    public Object get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(Object _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

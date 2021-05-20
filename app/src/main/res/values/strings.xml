@@ -37,4 +37,10 @@
     <string name="unauth">Unauthorized access</string>
     <string name="err">An error occurred</string>
     <string name="command">Commander</string>
+    <string name="nom_du_restaurant">Nom du restaurant</string>
+    <string name="description_du_restaurant">Description du restaurant</string>
+    <string name="app_logo">App logo</string>
+    <string name="nom_du_menu">Nom du menu</string>
+    <string name="description_du_menu">Description du menu</string>
+    <string name="prix">Prix</string>
 </resources>

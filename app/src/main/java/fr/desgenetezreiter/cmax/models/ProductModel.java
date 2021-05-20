@@ -1,11 +1,19 @@
 package fr.desgenetezreiter.cmax.models;
 
+import java.util.ArrayList;
+
 public class ProductModel {
     private String name;
     private String description;
     private String img_url;
-    private ProductModel[] extras;
+    private ArrayList<ProductResult> extras;
     private String type;
+
+    public ProductModel(String name,String description, String type){
+        this.name = name;
+        this.description = description;
+        this.type = type;
+    }
 
     public String getName() {
         return name;
@@ -31,13 +39,6 @@ public class ProductModel {
         this.img_url = img_url;
     }
 
-    public ProductModel[] getExtras() {
-        return extras;
-    }
-
-    public void setExtras(ProductModel[] extras) {
-        this.extras = extras;
-    }
 
     public String getType() {
         return type;
@@ -45,5 +46,13 @@ public class ProductModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public ArrayList<ProductResult> getExtras() {
+        return extras;
+    }
+
+    public void setExtras(ArrayList<ProductResult> extras) {
+        this.extras = extras;
     }
 }

@@ -22,8 +22,8 @@ import fr.desgenetezreiter.cmax.models.ProductModel;
 import fr.desgenetezreiter.cmax.models.ProductResult;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
-    Context context;
-    ArrayList<MenuModel> menus;
+    private Context context;
+    private ArrayList<MenuModel> menus;
     private RecycleViewOnClickListener recycleViewOnClickListener;
 
     public MenuAdapter(Context context, ArrayList<MenuModel> menus, RecycleViewOnClickListener recycleViewOnClickListener){

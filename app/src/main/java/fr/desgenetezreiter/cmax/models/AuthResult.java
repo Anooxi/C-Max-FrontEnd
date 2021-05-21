@@ -1,5 +1,7 @@
 package fr.desgenetezreiter.cmax.models;
 
+import java.util.Arrays;
+
 public class AuthResult {
     public final static int LOGIN = 0;
     public final static int REGISTER = 1;
@@ -95,5 +97,20 @@ public class AuthResult {
 
     public void setFields(String[] fields) {
         this.fields = fields;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthResult{" +
+                "type=" + type +
+                ", success=" + success +
+                ", token='" + token + '\'' +
+                ", expires=" + expires +
+                ", user=" + user +
+                ", resCode=" + resCode +
+                ", code='" + code + '\'' +
+                ", message='" + message + '\'' +
+                ", fields=" + Arrays.toString(fields) +
+                '}';
     }
 }

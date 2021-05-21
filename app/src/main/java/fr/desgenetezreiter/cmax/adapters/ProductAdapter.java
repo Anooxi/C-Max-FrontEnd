@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -46,6 +48,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.product_name.setText(product.getName());
         holder.product_description.setText(product.getDescription());
         holder.product_price.setVisibility(View.INVISIBLE);
+
+        Picasso.get().load(product.getImg_url())
+                .resize(120,120)
+                .error(R.drawable.app_logo)
+                .into(holder.product_image);
     }
 
     @Override
@@ -62,6 +69,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         protected TextView product_name;
         protected TextView product_description;
         protected TextView product_price;
+        protected ImageView product_image;
 
         public ProductViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -69,6 +77,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             product_name = itemView.findViewById(R.id.adapter_product_name);
             product_description = itemView.findViewById(R.id.adapter_product_description);
             product_price = itemView.findViewById(R.id.adapter_product_prix);
+            product_image = itemView.findViewById(R.id.adapter_product_iv);
         }
     }
 }

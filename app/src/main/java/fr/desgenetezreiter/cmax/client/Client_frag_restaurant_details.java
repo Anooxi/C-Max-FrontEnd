@@ -19,7 +19,9 @@ import android.widget.TextView;
 import org.jetbrains.annotations.NotNull;
 
 import fr.desgenetezreiter.cmax.R;
+import fr.desgenetezreiter.cmax.adapters.MenuAdapter;
 import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListener;
+import fr.desgenetezreiter.cmax.adapters.RestaurantAdapter;
 import fr.desgenetezreiter.cmax.models.AuthResult;
 import fr.desgenetezreiter.cmax.models.RestaurantViewModel;
 import fr.desgenetezreiter.cmax.models.UserModel;
@@ -69,6 +71,7 @@ public class Client_frag_restaurant_details extends Fragment implements RecycleV
         restaurant_name = view.findViewById(R.id.Client_frag_restaurant_details_name);
         restaurant_description = view.findViewById(R.id.Client_frag_restaurant_details_description);
         recyclerView = view.findViewById(R.id.Client_frag_restaurant_details_rv);
+
         currentUser = userViewModel.getCurrentUser().getValue();
         currentRestaurant = restaurantViewModel.getCurrentRestaurant().getValue();
         if(currentRestaurant == null){
@@ -81,6 +84,7 @@ public class Client_frag_restaurant_details extends Fragment implements RecycleV
         restaurantViewModel.getCurrentRestaurantMenus().observe(getViewLifecycleOwner(),menus -> {
             if(menus != null){
                 recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+                recyclerView.setAdapter(new MenuAdapter(context,menus,this));
             }
         });
     }

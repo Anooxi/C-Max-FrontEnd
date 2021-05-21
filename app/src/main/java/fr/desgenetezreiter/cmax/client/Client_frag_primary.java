@@ -86,7 +86,7 @@ public class Client_frag_primary extends Fragment implements RecycleViewOnClickL
             startActivity(intent);
         }
 
-        restaurantViewModel.getRestaurants(currentUser.token);
+        restaurantViewModel.getRestaurants(currentUser.token,"");
 
         // récupère la liste des restaurants
         restaurantViewModel.getRestaurantList().observe(getViewLifecycleOwner(), res -> {

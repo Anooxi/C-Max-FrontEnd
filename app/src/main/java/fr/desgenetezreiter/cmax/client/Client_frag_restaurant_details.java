@@ -91,6 +91,8 @@ public class Client_frag_restaurant_details extends Fragment implements RecycleV
 
     @Override
     public void onItemClick(int position) {
-        Navigation.findNavController(view).navigate(R.id.action_client_frag_restaurant_details_to_client_frag_menu_details);
+        Bundle bundle = new Bundle();
+        bundle.putInt("POS",position);
+        Navigation.findNavController(view).navigate(R.id.action_client_frag_restaurant_details_to_client_frag_menu_details,bundle);
     }
 }

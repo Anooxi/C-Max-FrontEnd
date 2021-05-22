@@ -22,13 +22,13 @@ import fr.desgenetezreiter.cmax.R;
 import fr.desgenetezreiter.cmax.models.ProductModel;
 import fr.desgenetezreiter.cmax.models.ProductResult;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+public class ProductMAdapter extends RecyclerView.Adapter<ProductMAdapter.ProductMViewHolder> {
 
     private Context context;
-    private ArrayList<ProductResult> products;
+    private ArrayList<ProductModel> products;
     private RecycleViewOnClickListener recycleViewOnClickListener;
 
-    public ProductAdapter(Context context, ArrayList<ProductResult> products, RecycleViewOnClickListener recycleViewOnClickListener) {
+    public ProductMAdapter(Context context, ArrayList<ProductModel> products, RecycleViewOnClickListener recycleViewOnClickListener) {
         this.context = context;
         this.products = products;
         this.recycleViewOnClickListener = recycleViewOnClickListener;
@@ -37,15 +37,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @NonNull
     @NotNull
     @Override
-    public ProductViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    public ProductMViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        return new ProductAdapter.ProductViewHolder(inflater.inflate(R.layout.adapter_product,parent,false));
+        return new ProductMAdapter.ProductMViewHolder(inflater.inflate(R.layout.adapter_product,parent,false));
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ProductViewHolder holder, int position) {
-        ProductModel product = products.get(position).getProduct();
+    public void onBindViewHolder(@NonNull @NotNull ProductMViewHolder holder, int position) {
+        ProductModel product = products.get(position);
         holder.product_name.setText(product.getName());
         holder.product_description.setText(product.getDescription());
         holder.product_price.setVisibility(View.INVISIBLE);
@@ -64,7 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return products.size();
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder {
+    public class ProductMViewHolder extends RecyclerView.ViewHolder {
 
         protected MaterialCardView materialCardView;
         protected TextView product_name;
@@ -72,7 +72,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         protected TextView product_price;
         protected ImageView product_image;
 
-        public ProductViewHolder(@NonNull @NotNull View itemView) {
+        public ProductMViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             materialCardView = itemView.findViewById(R.id.adapter_product_card);
             materialCardView.setOnClickListener(v -> {

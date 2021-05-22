@@ -79,6 +79,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         public MenuViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             materialCardView = itemView.findViewById(R.id.adapter_menu_card);
+            materialCardView.setOnClickListener(v -> {
+                recycleViewOnClickListener.onItemClick(getAdapterPosition());
+            });
             menu_name = itemView.findViewById(R.id.adapter_menu_name);
             menu_description = itemView.findViewById(R.id.adapter_menu_description);
             menu_price = itemView.findViewById(R.id.adapter_menu_prix);

@@ -1,5 +1,8 @@
 package fr.desgenetezreiter.cmax.models;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class UserModel {
     private String _id;
     private Boolean admin;
@@ -11,8 +14,10 @@ public class UserModel {
     private AddressModel address;
 
     private String restaurant_name;
-    private ProductModel[] products;
-    private MenuModel[] menus;
+    private ArrayList<String> products;
+    private ArrayList<ProductModel> productModels;
+    private ArrayList<String> menus;
+    private ArrayList<MenuModel> menuModels;
 
     public String getFullAddress(){
         return getAddress().getFullAddress();
@@ -95,19 +100,35 @@ public class UserModel {
         this.restaurant_name = restaurant_name;
     }
 
-    public ProductModel[] getProducts() {
+    public ArrayList<String> getProducts() {
         return products;
     }
 
-    public void setProducts(ProductModel[] products) {
+    public void setProducts(ArrayList<String> products) {
         this.products = products;
     }
 
-    public MenuModel[] getMenus() {
+    public ArrayList<ProductModel> getProductModels() {
+        return productModels;
+    }
+
+    public void setProductModels(ArrayList<ProductModel> productModels) {
+        this.productModels = productModels;
+    }
+
+    public ArrayList<String> getMenus() {
         return menus;
     }
 
-    public void setMenus(MenuModel[] menus) {
+    public void setMenus(ArrayList<String> menus) {
         this.menus = menus;
+    }
+
+    public ArrayList<MenuModel> getMenuModels() {
+        return menuModels;
+    }
+
+    public void setMenuModels(ArrayList<MenuModel> menuModels) {
+        this.menuModels = menuModels;
     }
 }

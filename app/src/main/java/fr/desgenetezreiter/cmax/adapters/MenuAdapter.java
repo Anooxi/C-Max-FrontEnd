@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
@@ -52,6 +54,11 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         }
         String tot = total + "€";
         holder.menu_price.setText(tot);
+
+        Picasso.get().load(menu.getImg_url())
+                .resize(120,120)
+                .error(R.drawable.app_logo)
+                .into(holder.menu_image);
     }
 
     @Override
@@ -67,13 +74,18 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         protected TextView menu_name;
         protected TextView menu_description;
         protected TextView menu_price;
+        protected ImageView menu_image;
 
         public MenuViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             materialCardView = itemView.findViewById(R.id.adapter_menu_card);
+            materialCardView.setOnClickListener(v -> {
+                recycleViewOnClickListener.onItemClick(getAdapterPosition());
+            });
             menu_name = itemView.findViewById(R.id.adapter_menu_name);
             menu_description = itemView.findViewById(R.id.adapter_menu_description);
             menu_price = itemView.findViewById(R.id.adapter_menu_prix);
+            menu_image = itemView.findViewById(R.id.adapter_menu_iv);
 
         }
     }

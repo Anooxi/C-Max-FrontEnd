@@ -19,6 +19,7 @@ import fr.desgenetezreiter.cmax.MainActivity;
 import fr.desgenetezreiter.cmax.R;
 import fr.desgenetezreiter.cmax.adapters.MenuAdapter;
 import fr.desgenetezreiter.cmax.adapters.ProductAdapter;
+import fr.desgenetezreiter.cmax.adapters.ProductMAdapter;
 import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListener;
 import fr.desgenetezreiter.cmax.models.AuthResult;
 import fr.desgenetezreiter.cmax.models.RestaurantViewModel;
@@ -93,7 +94,7 @@ public class Restaurant_frag_primary extends Fragment implements RecycleViewOnCl
         restaurantViewModel.getCurrentRestaurantsProducts().observe(getViewLifecycleOwner(), products -> {
             if(products != null){
                 recyclerViewProduct.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
-                recyclerViewProduct.setAdapter(new ProductAdapter(context,products,this));
+                recyclerViewProduct.setAdapter(new ProductMAdapter(context,products,this));
             }
         });
 

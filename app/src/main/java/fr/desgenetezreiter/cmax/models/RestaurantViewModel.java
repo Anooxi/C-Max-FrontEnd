@@ -53,8 +53,8 @@ public class RestaurantViewModel extends ViewModel {
         this.currentRestaurant.setValue(newCurrentRestaurant);
     }
 
-    public void getRestaurants(String token){
-        restaurantService.getRestaurants("Bearer " + token).enqueue(new Callback<ArrayList<UserModel>>() {
+    public void getRestaurants(String token,String category){
+        restaurantService.getRestaurants("Bearer " + token,category).enqueue(new Callback<ArrayList<UserModel>>() {
             @Override
             public void onResponse(Call<ArrayList<UserModel>> call, Response<ArrayList<UserModel>> response) {
                 if(response.isSuccessful()){

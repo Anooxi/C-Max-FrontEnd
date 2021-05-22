@@ -12,10 +12,12 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface RestaurantService {
     @GET("restaurants")
-    Call<ArrayList<UserModel>> getRestaurants(@Header("Authorization") String token);
+    Call<ArrayList<UserModel>> getRestaurants(@Header("Authorization") String token,
+                                              @Query("category") String category);
 
     @GET("restaurants/{restaurant_id}/menus")
     Call<ArrayList<MenuModel>> getMenus(@Header("Authorization") String token,

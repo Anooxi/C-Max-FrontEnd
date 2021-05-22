@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -57,6 +59,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         protected MaterialCardView materialCardView;
         protected TextView restaurant_name;
         protected TextView restaurant_description;
+        protected ImageView restaurant_image;
 
         public RestaurantViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -66,6 +69,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             });
             restaurant_name = itemView.findViewById(R.id.adapter_restaurant_name);
             restaurant_description = itemView.findViewById(R.id.adapter_restaurant_description);
+            restaurant_image = itemView.findViewById(R.id.adapter_restaurant_iv);
         }
     }
 

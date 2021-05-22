@@ -31,9 +31,9 @@ public class Client_primary extends AppCompatActivity implements NavigationView.
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_client_primary);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        Toolbar toolbar = findViewById(R.id.toolbar_main);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         setSupportActionBar(toolbar);
 

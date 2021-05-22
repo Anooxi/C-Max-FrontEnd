@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import fr.desgenetezreiter.cmax.R;
+import fr.desgenetezreiter.cmax.models.AuthResult;
+import fr.desgenetezreiter.cmax.models.UserViewModel;
+import fr.desgenetezreiter.cmax.models.UserViewModelInstance;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +27,8 @@ public class Client_frag_logout extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActivity().finish();
+        UserViewModelInstance.getInstance().setCurrentUser(null);
     }
 
     @Override

@@ -10,7 +10,7 @@
         <item android:id="@+id/action_client_frag_primary_to_client_frag_reclamation"
             android:icon="@drawable/outline_credit_card_24"
             android:title="@string/r_clamation" />
-        <item android:id="@+id/action_client_logout"
+        <item android:id="@+id/action_client_frag_primary_to_client_frag_logout"
               android:icon="@drawable/outline_power_24"
               android:title="@string/logout"/>
     </group>

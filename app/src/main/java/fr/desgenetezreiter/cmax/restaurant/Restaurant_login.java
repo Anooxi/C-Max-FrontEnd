@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 import fr.desgenetezreiter.cmax.R;
 import fr.desgenetezreiter.cmax.client.Client_primary;
+import fr.desgenetezreiter.cmax.models.AuthResult;
 import fr.desgenetezreiter.cmax.models.LoginModel;
 import fr.desgenetezreiter.cmax.models.UserViewModel;
 
@@ -45,6 +47,8 @@ public class Restaurant_login extends AppCompatActivity {
         });
 
         userViewModel.getCurrentUser().observe(this,res -> {
+            AuthResult authResult = res;
+            System.out.println(authResult.toString());
             if(res != null){
                 if(res.success){
                     startActivity(new Intent(this, Restaurant_primary.class));

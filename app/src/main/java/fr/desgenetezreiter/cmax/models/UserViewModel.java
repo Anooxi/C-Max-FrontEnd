@@ -1,5 +1,7 @@
 package fr.desgenetezreiter.cmax.models;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -22,6 +24,7 @@ public class UserViewModel extends ViewModel {
         authService.login(loginModel).enqueue(new Callback<AuthResult>() {
             @Override
             public void onResponse(Call<AuthResult> call, Response<AuthResult> response) {
+
                 AuthResult authResult = new AuthResult();
                 if(response.isSuccessful()){
                     authResult = response.body();
@@ -37,12 +40,12 @@ public class UserViewModel extends ViewModel {
                 }
                 authResult.setType(AuthResult.LOGIN);
                 authResult.setResCode(response.code());
-                userViewModelInstance.setCurrentUser(authResult);
+                setCurrentUser(authResult);
             }
 
             @Override
             public void onFailure(Call<AuthResult> call, Throwable t) {
-                userViewModelInstance.setCurrentUser(new AuthResult(0,-1));
+                setCurrentUser(new AuthResult(0,-1));
             }
         });
     }

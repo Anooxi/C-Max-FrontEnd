@@ -1,5 +1,8 @@
 package fr.desgenetezreiter.cmax.client;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,12 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
-
 import fr.desgenetezreiter.cmax.R;
 
 
@@ -31,9 +29,9 @@ public class Client_primary extends AppCompatActivity implements NavigationView.
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_client_primary);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        Toolbar toolbar = findViewById(R.id.toolbar_main);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         setSupportActionBar(toolbar);
 

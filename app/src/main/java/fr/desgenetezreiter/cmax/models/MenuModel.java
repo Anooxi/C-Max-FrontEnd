@@ -3,18 +3,18 @@ package fr.desgenetezreiter.cmax.models;
 import java.util.ArrayList;
 
 public class MenuModel {
-    private Object _id;
+    private String _id;
     private String name;
     private String description;
     private String img_url;;
     private ArrayList<ProductResult> products;
     private String category;
 
-    public Object get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(Object _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

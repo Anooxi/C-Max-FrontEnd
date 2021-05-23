@@ -48,7 +48,6 @@ public class Restaurant_login extends AppCompatActivity {
 
         userViewModel.getCurrentUser().observe(this,res -> {
             AuthResult authResult = res;
-            System.out.println(authResult.toString());
             if(res != null){
                 if(res.success){
                     startActivity(new Intent(this, Restaurant_primary.class));

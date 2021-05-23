@@ -31,35 +31,39 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
     @Override
     public RestaurantViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        return new RestaurantViewHolder(inflater.inflate(R.layout.adapter_restaurant,parent,false));
+        return new RestaurantViewHolder(inflater.inflate(R.layout.adapter_restaurant, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull RestaurantViewHolder holder, int position) {
         UserModel userModel = restaurants.get(position);
         holder.restaurant_name.setText(userModel.getRestaurant_name());
+        holder.restaurant_description.setText(userModel.getFullAddress());
+        holder.restaurant_nb_menus.setText(context.getResources().getString(R.string.nb_menus,
+                userModel.getMenus().size()));
     }
 
     @Override
     public int getItemCount() {
-        if(restaurants == null){
+        if (restaurants == null) {
             return 0;
         }
         return restaurants.size();
     }
 
-    public RestaurantAdapter(Context context, ArrayList<UserModel> restaurants,RecycleViewOnClickListener recycleViewOnClickListener){
+    public RestaurantAdapter(Context context, ArrayList<UserModel> restaurants, RecycleViewOnClickListener recycleViewOnClickListener) {
         this.context = context;
         this.restaurants = restaurants;
         this.recycleViewOnClickListener = recycleViewOnClickListener;
     }
 
-    public class RestaurantViewHolder extends RecyclerView.ViewHolder{
+    public class RestaurantViewHolder extends RecyclerView.ViewHolder {
 
         protected MaterialCardView materialCardView;
         protected TextView restaurant_name;
         protected TextView restaurant_description;
         protected ImageView restaurant_image;
+        protected TextView restaurant_nb_menus;
 
         public RestaurantViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -70,6 +74,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             restaurant_name = itemView.findViewById(R.id.adapter_restaurant_name);
             restaurant_description = itemView.findViewById(R.id.adapter_restaurant_description);
             restaurant_image = itemView.findViewById(R.id.adapter_restaurant_iv);
+            restaurant_nb_menus = itemView.findViewById(R.id.adapter_restaurant_nb_menus);
         }
     }
 

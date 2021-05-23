@@ -3,6 +3,8 @@ package fr.desgenetezreiter.cmax.client;
 import android.content.Context;
 import android.os.Bundle;
 
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,22 +21,16 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import fr.desgenetezreiter.cmax.models.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 import fr.desgenetezreiter.cmax.R;
-import fr.desgenetezreiter.cmax.adapters.MenuAdapter;
 import fr.desgenetezreiter.cmax.adapters.ProductAdapter;
 import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListener;
-import fr.desgenetezreiter.cmax.models.AuthResult;
-import fr.desgenetezreiter.cmax.models.MenuModel;
-import fr.desgenetezreiter.cmax.models.ProductResult;
-import fr.desgenetezreiter.cmax.models.RestaurantViewModel;
-import fr.desgenetezreiter.cmax.models.UserModel;
-import fr.desgenetezreiter.cmax.models.UserViewModel;
 
-public class Client_frag_menu_details extends Fragment implements RecycleViewOnClickListener {
+public class Client_frag_menu_details extends Fragment implements RecycleViewOnClickListener, View.OnClickListener {
 
     private Context context;
     private View view;
@@ -84,9 +80,12 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
         recyclerView = view.findViewById(R.id.Client_frag_menu_details_rv);
         menu_price = view.findViewById(R.id.Client_frag_menu_details_prix);
 
+        Button addInCartButton = view.findViewById(R.id.Client_frag_menu_details_button);
+        addInCartButton.setOnClickListener(this);
+
         currentUser = userViewModel.getCurrentUser().getValue();
         currentRestaurant = restaurantViewModel.getCurrentRestaurant().getValue();
-        if(currentRestaurant == null){
+        if (currentRestaurant == null) {
             Navigation.findNavController(view).popBackStack();
         }
         currentMenu = restaurantViewModel.getCurrentRestaurantMenus().getValue().get(getArguments().getInt("POS"));
@@ -94,19 +93,19 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
         menu_name.setText(currentMenu.getName());
         menu_description.setText(currentMenu.getDescription());
         Picasso.get().load(currentMenu.getImg_url())
-                .resize(120,120)
+                .resize(120, 120)
                 .error(R.drawable.app_logo)
                 .into(menu_image);
         menu_price.setText(getTotalPrice(currentMenu.getProducts()) + "€");
 
-
         recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(new ProductAdapter(context,currentMenu.getProducts(),this));
+
     }
 
-    public double getTotalPrice(ArrayList<ProductResult> products){
+    public double getTotalPrice(ArrayList<ProductResult> products) {
         double tot = 0;
-        for(ProductResult product : products){
+        for (ProductResult product : products) {
             tot += product.getPrice();
         }
         return tot;
@@ -115,5 +114,17 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
     @Override
     public void onItemClick(int position) {
 
+    }
+
+    public void addInCart() {
+        CartViewModel.addInCart(currentMenu.get_id(), currentRestaurant.get_id())
+                .observe(this, System.out::println);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.Client_frag_menu_details_button) {
+            addInCart();
+        }
     }
 }

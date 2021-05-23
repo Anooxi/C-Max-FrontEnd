@@ -90,10 +90,10 @@
             android:text="@string/prix"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/Client_frag_menu_details_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ajouter_au_panier" />
+                android:id="@+id/Client_frag_menu_details_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ajouter_au_panier"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

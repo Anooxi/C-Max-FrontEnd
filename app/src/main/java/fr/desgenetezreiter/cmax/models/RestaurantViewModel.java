@@ -54,7 +54,7 @@ public class RestaurantViewModel extends ViewModel {
     }
 
     public void getRestaurants(String token,String category){
-        restaurantService.getRestaurants("Bearer " + token,category).enqueue(new Callback<ArrayList<UserModel>>() {
+        restaurantService.getRestaurants(category).enqueue(new Callback<ArrayList<UserModel>>() {
             @Override
             public void onResponse(Call<ArrayList<UserModel>> call, Response<ArrayList<UserModel>> response) {
                 if(response.isSuccessful()){
@@ -111,7 +111,7 @@ public class RestaurantViewModel extends ViewModel {
     }
 
     public void getMenus(String token, String restaurant_id){
-        restaurantService.getMenus("Bearer "+token,restaurant_id).enqueue(new Callback<ArrayList<MenuModel>>() {
+        restaurantService.getMenus(restaurant_id).enqueue(new Callback<ArrayList<MenuModel>>() {
             @Override
             public void onResponse(Call<ArrayList<MenuModel>> call, Response<ArrayList<MenuModel>> response) {
                 if(response.isSuccessful()){
@@ -127,7 +127,7 @@ public class RestaurantViewModel extends ViewModel {
     }
 
     public void getProducts(String token, String restaurant_id){
-        restaurantService.getProducts("Bearer " + token, restaurant_id).enqueue(new Callback<ArrayList<ProductModel>>() {
+        restaurantService.getProducts(restaurant_id).enqueue(new Callback<ArrayList<ProductModel>>() {
             @Override
             public void onResponse(Call<ArrayList<ProductModel>> call, Response<ArrayList<ProductModel>> response) {
                 if(response.isSuccessful()){

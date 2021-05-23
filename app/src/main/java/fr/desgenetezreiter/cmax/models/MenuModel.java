@@ -58,4 +58,12 @@ public class MenuModel {
     public void setProducts(ArrayList<ProductResult> products) {
         this.products = products;
     }
+
+    public double getPrix(){
+        double tot = 0;
+        for(ProductResult product : products){
+            tot += product.getPrice();
+        }
+        return tot;
+    }
 }

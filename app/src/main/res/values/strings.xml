@@ -51,4 +51,8 @@
     <string name="logout">Se déconnecter</string>
     <string name="ajouter_au_panier">Ajouter au panier</string>
     <string name="nb_menus">%1$d menus disponibles</string>
+    <string name="payer">Payer</string>
+    <string name="num_ro_de_carte_bleu">Numéro de carte bleu</string>
+    <string name="csv">csv</string>
+    <string name="expiration">expiration</string>
 </resources>

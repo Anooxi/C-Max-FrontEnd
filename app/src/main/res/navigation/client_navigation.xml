@@ -30,7 +30,11 @@
             android:id="@+id/client_frag_panier"
             android:name="fr.desgenetezreiter.cmax.client.Client_frag_panier"
             android:label="@string/panier"
-            tools:layout="@layout/fragment_client_frag_panier"/>
+            tools:layout="@layout/fragment_client_frag_panier">
+        <action
+            android:id="@+id/action_client_frag_panier_to_client_frag_paiement"
+            app:destination="@id/client_frag_paiement" />
+    </fragment>
     <fragment
             android:id="@+id/client_frag_historique"
             android:name="fr.desgenetezreiter.cmax.client.Client_frag_historique"
@@ -60,4 +64,13 @@
             android:name="fr.desgenetezreiter.cmax.client.Client_frag_logout"
             android:label="@string/logout"
             tools:layout="@layout/fragment_client_frag_logout"/>
+    <fragment
+        android:id="@+id/client_frag_paiement"
+        android:name="fr.desgenetezreiter.cmax.client.Client_frag_paiement"
+        android:label="fragment_client_frag_paiement"
+        tools:layout="@layout/fragment_client_frag_paiement" >
+        <action
+            android:id="@+id/action_client_frag_paiement_to_client_frag_primary"
+            app:destination="@id/client_frag_primary" />
+    </fragment>
 </navigation>

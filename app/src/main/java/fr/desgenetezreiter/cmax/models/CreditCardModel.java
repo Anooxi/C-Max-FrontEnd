@@ -5,6 +5,12 @@ public class CreditCardModel {
     private String expiration;
     private String ccv;
 
+    public CreditCardModel(String number, String expiration, String ccv) {
+        this.number = number;
+        this.expiration = expiration;
+        this.ccv = ccv;
+    }
+
     public String getNumber() {
         return number;
     }

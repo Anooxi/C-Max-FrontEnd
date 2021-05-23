@@ -98,13 +98,9 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
                 .into(menu_image);
         menu_price.setText(getTotalPrice(currentMenu.getProducts()) + "€");
 
-        restaurantViewModel.getProducts(currentUser.token, currentRestaurant.get_id());
-        restaurantViewModel.getCurrentRestaurantsProducts().observe(getViewLifecycleOwner(), products -> {
-            if (products != null) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-                recyclerView.setAdapter(new ProductAdapter(context, currentMenu.getProducts(), this));
-            }
-        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(new ProductAdapter(context,currentMenu.getProducts(),this));
+
     }
 
     public double getTotalPrice(ArrayList<ProductResult> products) {

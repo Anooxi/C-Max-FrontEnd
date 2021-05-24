@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_delivery_frag_primary_to_delivery_frag_orders"
             app:destination="@id/delivery_frag_orders" />
+        <action
+            android:id="@+id/action_delivery_frag_primary_to_delivery_frag_logout"
+            app:destination="@id/delivery_frag_logout" />
     </fragment>
     <fragment
         android:id="@+id/delivery_frag_commandes"
@@ -27,4 +30,9 @@
         android:name="fr.desgenetezreiter.cmax.delivery.Delivery_frag_orders"
         android:label="@string/historique"
         tools:layout="@layout/fragment_delivery_frag_orders" />
+    <fragment
+        android:id="@+id/delivery_frag_logout"
+        android:name="fr.desgenetezreiter.cmax.delivery.Delivery_frag_logout"
+        android:label="fragment_delivery_frag_logout"
+        tools:layout="@layout/fragment_delivery_frag_logout" />
 </navigation>

@@ -66,4 +66,8 @@ public class OrderResult {
     public void setPayment(CreditCardModel payment) {
         this.payment = payment;
     }
+
+    public boolean isClosed(){
+        return status.equals("delivered");
+    }
 }

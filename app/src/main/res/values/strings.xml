@@ -55,4 +55,15 @@
     <string name="num_ro_de_carte_bleu">Numéro de carte bleu</string>
     <string name="csv">csv</string>
     <string name="expiration">expiration</string>
+    <string name="paiement">Paiement</string>
+    <string name="url_de_l_image">URL de l\'image</string>
+    <string name="nombre">Nombre</string>
+    <string name="ajouter_au_menu">Ajouter au menu</string>
+    <string name="status">Status</string>
+    <string name="nom_du_client">Nom du client</string>
+    <string name="addresse_du_client">Addresse du client</string>
+    <string name="addresse_du_restaurant">Addresse du restaurant</string>
+    <string name="commandes_en_cours">Commandes en cours</string>
+    <string name="commandes_livr_es">Commandes livrées</string>
+    <string name="mes_commandes">Mes commandes</string>
 </resources>

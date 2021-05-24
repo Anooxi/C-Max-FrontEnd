@@ -81,12 +81,18 @@ public class Client_frag_paiement extends Fragment {
                     csv.getEditText().getText().toString());
             OrderModel orderModel = new OrderModel(CartViewModel.getCart().getValue().getClientId(),creditCardModel);
             OrderViewModel.postOrder(orderModel);
-            CartViewModel.deleteCart();
-            Snackbar.make(view,"Ordre payé",Snackbar.LENGTH_SHORT).show();
-            Navigation.findNavController(view).navigate(R.id.action_client_frag_paiement_to_client_frag_primary);
-
 
         });
 
+        OrderViewModel.getSuccess().observe(getViewLifecycleOwner(),aBoolean -> {
+            if(aBoolean){
+                CartViewModel.deleteCart();
+                Snackbar.make(view,"Ordre payé",Snackbar.LENGTH_SHORT).show();
+                OrderViewModel.setSuccess(null);
+                Navigation.findNavController(view).navigate(R.id.action_client_frag_paiement_to_client_frag_primary);
+            } else {
+                Snackbar.make(view,"Erreur",Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
 }

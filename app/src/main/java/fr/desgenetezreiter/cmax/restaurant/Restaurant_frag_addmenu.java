@@ -21,10 +21,17 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.jetbrains.annotations.NotNull;
 
 import fr.desgenetezreiter.cmax.R;
+import fr.desgenetezreiter.cmax.adapters.MenuAdapter;
 import fr.desgenetezreiter.cmax.adapters.ProductAddAdapter;
 import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListener;
+import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListenerBis;
 import fr.desgenetezreiter.cmax.models.AuthResult;
 import fr.desgenetezreiter.cmax.models.MenuModel;
+import fr.desgenetezreiter.cmax.models.MenuSend;
+import fr.desgenetezreiter.cmax.models.OrderViewModel;
+import fr.desgenetezreiter.cmax.models.ProductModel;
+import fr.desgenetezreiter.cmax.models.ProductResult;
+import fr.desgenetezreiter.cmax.models.ProductSend;
 import fr.desgenetezreiter.cmax.models.RestaurantViewModel;
 import fr.desgenetezreiter.cmax.models.UserModel;
 import fr.desgenetezreiter.cmax.models.UserViewModel;
@@ -45,6 +52,8 @@ public class Restaurant_frag_addmenu extends Fragment implements RecycleViewOnCl
     private TextInputLayout url;
     private RecyclerView recyclerView;
     private MaterialButton button;
+
+    private MenuSend newMenu;
 
     public Restaurant_frag_addmenu() {
     }
@@ -89,14 +98,16 @@ public class Restaurant_frag_addmenu extends Fragment implements RecycleViewOnCl
         recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(new ProductAddAdapter(context,restaurantViewModel.getCurrentRestaurantsProducts().getValue(),this));
 
+        newMenu = new MenuSend();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MenuModel menu = new MenuModel();
-                menu.setName(title.getEditText().getText().toString());
-                menu.setDescription(description.getEditText().getText().toString());
-                menu.setImg_url(url.getEditText().getText().toString());
-                //TODO Récupérer les produits
+                newMenu.setName(title.getEditText().getText().toString());
+                newMenu.setDescription(description.getEditText().getText().toString());
+                newMenu.setImg_url(url.getEditText().getText().toString());
+
+
             }
         });
 
@@ -104,6 +115,11 @@ public class Restaurant_frag_addmenu extends Fragment implements RecycleViewOnCl
 
     @Override
     public void onItemClick(int position) {
-        //TODO Augmenter le nombre de menu
+        ProductSend productSend = new ProductSend();
+        ProductModel newProduct = ((ProductAddAdapter) recyclerView.getAdapter()).getProducts().get(position);
+        productSend.setPrice(10);
+        productSend.addProduct(newProduct.get_id());
+
+        newMenu.addProduct(productSend);
     }
 }

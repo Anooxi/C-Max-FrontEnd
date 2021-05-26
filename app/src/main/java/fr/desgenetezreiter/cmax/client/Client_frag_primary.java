@@ -104,4 +104,6 @@ public class Client_frag_primary extends Fragment implements RecycleViewOnClickL
         restaurantViewModel.setCurrentRestaurant(restaurants.get(position));
         Navigation.findNavController(view).navigate(R.id.action_client_frag_primary_to_client_frag_restaurant_details);
     }
+
+
 }

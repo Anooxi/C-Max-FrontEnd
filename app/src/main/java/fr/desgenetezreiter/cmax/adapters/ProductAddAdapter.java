@@ -93,4 +93,8 @@ public class ProductAddAdapter extends RecyclerView.Adapter<ProductAddAdapter.Pr
             });
         }
     }
+
+    public ArrayList<ProductModel> getProducts() {
+        return products;
+    }
 }

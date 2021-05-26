@@ -3,6 +3,7 @@ package fr.desgenetezreiter.cmax.services;
 import fr.desgenetezreiter.cmax.models.CartModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
@@ -22,4 +23,7 @@ public interface CartService {
 
     @POST("users/me/cart")
     Call<CartModel> addInUserCart(@Body AddItemBody body);
+
+    @DELETE("users/me/cart")
+    Call<Void> deleteCart();
 }

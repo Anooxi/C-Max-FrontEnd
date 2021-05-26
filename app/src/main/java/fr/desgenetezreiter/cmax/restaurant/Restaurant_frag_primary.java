@@ -8,12 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.button.MaterialButton;
 
 import fr.desgenetezreiter.cmax.MainActivity;
 import fr.desgenetezreiter.cmax.R;
@@ -41,6 +44,9 @@ public class Restaurant_frag_primary extends Fragment implements RecycleViewOnCl
     private RecyclerView recyclerViewMenu;
     private RecyclerView recyclerViewProduct;
 
+    private MaterialButton addMenuButton;
+    private MaterialButton addProductButton;
+
     public Restaurant_frag_primary() {
     }
 
@@ -61,6 +67,9 @@ public class Restaurant_frag_primary extends Fragment implements RecycleViewOnCl
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+        addMenuButton = view.findViewById(R.id.restaurant_frag_primary_bm);
+        addProductButton = view.findViewById(R.id.restaurant_frag_primary_bp);
+
 
         currentUser = userViewModel.getCurrentUser().getValue();
         if(currentUser == null){
@@ -76,8 +85,8 @@ public class Restaurant_frag_primary extends Fragment implements RecycleViewOnCl
             startActivity(intent);
         }
 
-        restaurantViewModel.getMenus(currentUser.token, currentRestaurant.get_id());
-        restaurantViewModel.getProducts(currentUser.token, currentRestaurant.get_id());
+        restaurantViewModel.getMenus(currentRestaurant.get_id());
+        restaurantViewModel.getProducts(currentRestaurant.get_id());
 
         recyclerViewMenu = view.findViewById(R.id.restaurant_frag_primary_rvm);
         recyclerViewProduct = view.findViewById(R.id.restaurant_frag_primary_rvp);
@@ -98,6 +107,18 @@ public class Restaurant_frag_primary extends Fragment implements RecycleViewOnCl
             }
         });
 
+        addMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_restaurant_frag_primary_to_restaurant_frag_addmenu);
+            }
+        });
+        addProductButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_restaurant_frag_primary_to_restaurant_frag_addproduct);
+            }
+        });
     }
 
     @Override

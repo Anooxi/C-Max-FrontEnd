@@ -44,11 +44,26 @@ public class CartViewModel extends ViewModel {
 
                     @Override
                     public void onFailure(@NotNull Call<CartModel> call, @NotNull Throwable t) {
-                        cart.setValue(null);
+                        cart.setValue(new CartModel());
                     }
                 });
         return cart;
     }
 
+    public static void deleteCart(){
+        cartService.deleteCart().enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    cart.setValue(new CartModel());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
 
 }

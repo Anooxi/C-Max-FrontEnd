@@ -80,7 +80,7 @@ public class Client_frag_restaurant_details extends Fragment implements RecycleV
 
         restaurant_name.setText(currentRestaurant.getRestaurant_name());
 
-        restaurantViewModel.getMenus(currentUser.token,currentRestaurant.get_id());
+        restaurantViewModel.getMenus(currentRestaurant.get_id());
         restaurantViewModel.getCurrentRestaurantMenus().observe(getViewLifecycleOwner(),menus -> {
             if(menus != null){
                 recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));

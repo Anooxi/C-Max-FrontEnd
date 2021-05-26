@@ -15,6 +15,15 @@
         <action
             android:id="@+id/action_restaurant_frag_primary_to_restaurant_frag_commandes"
             app:destination="@id/restaurant_frag_commandes" />
+        <action
+            android:id="@+id/action_restaurant_frag_primary_to_restaurant_frag_addproduct"
+            app:destination="@id/restaurant_frag_addproduct" />
+        <action
+            android:id="@+id/action_restaurant_frag_primary_to_restaurant_frag_addmenu"
+            app:destination="@id/restaurant_frag_addmenu" />
+        <action
+            android:id="@+id/action_restaurant_frag_primary_to_restaurant_frag_logout"
+            app:destination="@id/restaurant_frag_logout" />
     </fragment>
     <fragment
         android:id="@+id/restaurant_frag_historique"
@@ -26,4 +35,19 @@
         android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_commandes"
         android:label="@string/pendingorders"
         tools:layout="@layout/fragment_restaurant_frag_commandes" />
+    <fragment
+        android:id="@+id/restaurant_frag_addproduct"
+        android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_addproduct"
+        android:label="@string/ajouter_un_produit"
+        tools:layout="@layout/fragment_restaurant_frag_addproduct" />
+    <fragment
+        android:id="@+id/restaurant_frag_addmenu"
+        android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_addmenu"
+        android:label="@string/ajouter_un_menu"
+        tools:layout="@layout/fragment_restaurant_frag_addmenu" />
+    <fragment
+        android:id="@+id/restaurant_frag_logout"
+        android:name="fr.desgenetezreiter.cmax.restaurant.Restaurant_frag_logout"
+        android:label="fragment_restaurant_frag_logout"
+        tools:layout="@layout/fragment_restaurant_frag_logout" />
 </navigation>

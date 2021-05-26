@@ -16,7 +16,7 @@ public class RestaurantViewModel extends ViewModel {
 
     private int status;
 
-    private RestaurantService restaurantService = HttpClient.getInstance().getRestaurantService();
+    private final RestaurantService restaurantService = HttpClient.getInstance().getRestaurantService();
     private MutableLiveData<ArrayList<UserModel>> restaurantList;
     private MutableLiveData<UserModel> currentRestaurant;
     private MutableLiveData<ArrayList<MenuModel>> currentRestaurantMenus;
@@ -110,7 +110,7 @@ public class RestaurantViewModel extends ViewModel {
         this.currentRestaurantsProducts.setValue(newProducts);
     }
 
-    public void getMenus(String token, String restaurant_id){
+    public void getMenus(String restaurant_id){
         restaurantService.getMenus(restaurant_id).enqueue(new Callback<ArrayList<MenuModel>>() {
             @Override
             public void onResponse(Call<ArrayList<MenuModel>> call, Response<ArrayList<MenuModel>> response) {
@@ -126,7 +126,7 @@ public class RestaurantViewModel extends ViewModel {
         });
     }
 
-    public void getProducts(String token, String restaurant_id){
+    public void getProducts(String restaurant_id){
         restaurantService.getProducts(restaurant_id).enqueue(new Callback<ArrayList<ProductModel>>() {
             @Override
             public void onResponse(Call<ArrayList<ProductModel>> call, Response<ArrayList<ProductModel>> response) {

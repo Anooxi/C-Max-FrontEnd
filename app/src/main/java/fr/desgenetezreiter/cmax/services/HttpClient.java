@@ -22,6 +22,8 @@ public class HttpClient {
     private static AuthService authService;
     private static RestaurantService restaurantService;
     private static CartService cartService;
+    private static OrdersService ordersService;
+    private static MenusService menusService;
 
     private HttpClient() {
         OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
@@ -43,6 +45,20 @@ public class HttpClient {
             INSTANCE = new HttpClient();
         }
         return INSTANCE;
+    }
+
+    public MenusService getMenusService(){
+        if (menusService == null){
+            menusService = retrofit.create(MenusService.class);
+        }
+        return menusService;
+    }
+
+    public OrdersService getOrdersService(){
+        if (ordersService == null){
+            ordersService = retrofit.create(OrdersService.class);
+        }
+        return ordersService;
     }
 
     public AuthService getAuthService() {

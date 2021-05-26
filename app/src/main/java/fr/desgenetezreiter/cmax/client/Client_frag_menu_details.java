@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 import fr.desgenetezreiter.cmax.models.*;
@@ -37,6 +38,7 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
 
     private UserViewModel userViewModel;
     private RestaurantViewModel restaurantViewModel;
+    private CartViewModel cartViewModel;
 
     private UserModel currentRestaurant;
     private AuthResult currentUser;
@@ -74,6 +76,8 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
         super.onViewCreated(view, savedInstanceState);
         userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
         restaurantViewModel = new ViewModelProvider(requireActivity()).get(RestaurantViewModel.class);
+        cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
+
         menu_name = view.findViewById(R.id.Client_frag_menu_details_name);
         menu_description = view.findViewById(R.id.Client_frag_menu_details_description);
         menu_image = view.findViewById(R.id.Client_frag_menu_details_iv);
@@ -118,7 +122,11 @@ public class Client_frag_menu_details extends Fragment implements RecycleViewOnC
 
     public void addInCart() {
         CartViewModel.addInCart(currentMenu.get_id(), currentRestaurant.get_id())
-                .observe(this, System.out::println);
+                .observe(this, cartModel -> {
+                    Snackbar.make(view,"Menu ajouté au panier",Snackbar.LENGTH_SHORT)
+                            .setBackgroundTint(getResources().getColor(R.color.design_default_color_on_primary, context.getTheme()))
+                            .show();
+                });
     }
 
     @Override

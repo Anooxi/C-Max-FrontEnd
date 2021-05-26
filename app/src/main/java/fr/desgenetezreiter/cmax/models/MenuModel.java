@@ -66,4 +66,8 @@ public class MenuModel {
         }
         return tot;
     }
+
+    public void addProduct(ProductResult e){
+        products.add(e);
+    }
 }

@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -79,6 +80,7 @@ public class Client_frag_panier extends Fragment implements RecycleViewOnClickLi
                 prix.setText("0€");
             }
         });
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

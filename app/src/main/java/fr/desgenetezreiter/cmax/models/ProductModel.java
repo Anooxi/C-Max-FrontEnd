@@ -3,6 +3,7 @@ package fr.desgenetezreiter.cmax.models;
 import java.util.ArrayList;
 
 public class ProductModel {
+    private String _id;
     private String name;
     private String description;
     private String img_url;
@@ -55,4 +56,15 @@ public class ProductModel {
     public void setExtras(ArrayList<ProductResult> extras) {
         this.extras = extras;
     }
+
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 }
+
+

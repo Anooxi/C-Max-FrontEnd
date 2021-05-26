@@ -1,6 +1,8 @@
 package fr.desgenetezreiter.cmax.services;
 
 import fr.desgenetezreiter.cmax.models.MenuModel;
+import fr.desgenetezreiter.cmax.models.MenuSend;
+import fr.desgenetezreiter.cmax.models.MenuViewModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -9,6 +11,5 @@ import retrofit2.http.Path;
 
 public interface MenusService {
     @POST("menus")
-    Call<MenuModel> postMenu(@Path(value="restaurant_id",encoded = true) String restaurant_id,
-                             @Body MenuModel menu);
+    Call<Void> postMenu(@Body MenuViewModel.MenuBody menu);
 }

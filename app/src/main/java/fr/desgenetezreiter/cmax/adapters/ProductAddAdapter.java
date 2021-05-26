@@ -84,11 +84,8 @@ public class ProductAddAdapter extends RecyclerView.Adapter<ProductAddAdapter.Pr
             product_image = itemView.findViewById(R.id.adapter_addproduct_iv);
             product_number = itemView.findViewById(R.id.adapter_addproduct_number);
             product_button = itemView.findViewById(R.id.adapter_addproduct_btn);
-            materialCardView.setOnClickListener(v -> {
-                recycleViewOnClickListener.onItemClick(getAdapterPosition());
-                product_number.setText(Integer.parseInt(product_number.getText().toString()) + 1 + "");
-            });
             product_button.setOnClickListener(v -> {
+                recycleViewOnClickListener.onItemClick(getAdapterPosition());
                 product_number.setText(Integer.parseInt(product_number.getText().toString()) + 1 + "");
             });
         }

@@ -6,7 +6,7 @@ public class MenuSend {
     private String name;
     private String description;
     private String img_url;
-    private ArrayList<ProductSend> products;
+    private ArrayList<ProductSend> products = new ArrayList<>();
 
     public String getName() {
         return name;

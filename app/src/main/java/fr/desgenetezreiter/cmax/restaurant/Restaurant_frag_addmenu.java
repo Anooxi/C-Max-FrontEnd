@@ -28,6 +28,7 @@ import fr.desgenetezreiter.cmax.adapters.RecycleViewOnClickListenerBis;
 import fr.desgenetezreiter.cmax.models.AuthResult;
 import fr.desgenetezreiter.cmax.models.MenuModel;
 import fr.desgenetezreiter.cmax.models.MenuSend;
+import fr.desgenetezreiter.cmax.models.MenuViewModel;
 import fr.desgenetezreiter.cmax.models.OrderViewModel;
 import fr.desgenetezreiter.cmax.models.ProductModel;
 import fr.desgenetezreiter.cmax.models.ProductResult;
@@ -107,6 +108,8 @@ public class Restaurant_frag_addmenu extends Fragment implements RecycleViewOnCl
                 newMenu.setDescription(description.getEditText().getText().toString());
                 newMenu.setImg_url(url.getEditText().getText().toString());
 
+                MenuViewModel.postMenu(newMenu);
+                Navigation.findNavController(view).popBackStack();
 
             }
         });
@@ -118,7 +121,7 @@ public class Restaurant_frag_addmenu extends Fragment implements RecycleViewOnCl
         ProductSend productSend = new ProductSend();
         ProductModel newProduct = ((ProductAddAdapter) recyclerView.getAdapter()).getProducts().get(position);
         productSend.setPrice(10);
-        productSend.addProduct(newProduct.get_id());
+        productSend.setProduct(newProduct.get_id());
 
         newMenu.addProduct(productSend);
     }

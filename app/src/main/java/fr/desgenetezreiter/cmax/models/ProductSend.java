@@ -3,15 +3,15 @@ package fr.desgenetezreiter.cmax.models;
 import java.util.ArrayList;
 
 public class ProductSend {
-    private ArrayList<String> product;
+    private String product;
     private double price;
 
-    public ArrayList<String> getProduct() {
+    public String getProduct() {
         return product;
     }
 
-    public void setProduct(ArrayList<String> product) {
-        this.product.addAll(product);
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public double getPrice() {
@@ -22,7 +22,4 @@ public class ProductSend {
         this.price = price;
     }
 
-    public void addProduct(String e){
-        product.add(e);
-    }
 }

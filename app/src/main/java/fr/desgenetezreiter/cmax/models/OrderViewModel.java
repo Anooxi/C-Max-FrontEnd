@@ -126,4 +126,20 @@ public class OrderViewModel extends ViewModel {
         }
         OrderViewModel.success.setValue(success);
     }
+
+    public static MutableLiveData<String> nextStatus(String orderId) {
+        MutableLiveData<String> modified = new MutableLiveData<>();
+        ordersService.nextStatus(orderId).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                modified.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                modified.setValue(null);
+            }
+        });
+        return modified;
+    }
 }

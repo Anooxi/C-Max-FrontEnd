@@ -57,8 +57,8 @@ public class Client_frag_historique extends Fragment implements RecycleViewOnCli
         });
         OrderViewModel.getPreviousOrders().observe(getViewLifecycleOwner(), closed -> {
             if(closed != null){
-                rv1.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
-                rv1.setAdapter(new OrderAdapter(context,closed,this));
+                rv2.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+                rv2.setAdapter(new OrderAdapter(context,closed,this));
             }
         });
     }

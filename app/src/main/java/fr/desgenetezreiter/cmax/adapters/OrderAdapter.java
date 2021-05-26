@@ -55,6 +55,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return orderResults.size();
     }
 
+    public OrderResult getOrder(int id) {
+        return this.orderResults.get(id);
+    }
+
     public class OrderViewHolder extends RecyclerView.ViewHolder {
 
         protected TextView clientName;

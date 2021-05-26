@@ -81,6 +81,5 @@ public class Delivery_frag_primary extends Fragment implements RecycleViewOnClic
 
     @Override
     public void onItemClick(int position) {
-
     }
 }

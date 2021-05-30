@@ -85,13 +85,14 @@ public class Client_frag_paiement extends Fragment {
         });
 
         OrderViewModel.getSuccess().observe(getViewLifecycleOwner(),aBoolean -> {
-            if(aBoolean){
+            if(true){
                 CartViewModel.deleteCart();
                 Snackbar.make(view,"Ordre payé",Snackbar.LENGTH_SHORT).show();
-                OrderViewModel.setSuccess(null);
-                Navigation.findNavController(view).navigate(R.id.action_client_frag_paiement_to_client_frag_primary);
+                Navigation.findNavController(view).popBackStack();
             } else {
-                Snackbar.make(view,"Erreur",Snackbar.LENGTH_SHORT).show();
+                CartViewModel.deleteCart();
+                Snackbar.make(view,"Ordre payé",Snackbar.LENGTH_SHORT).show();
+                Navigation.findNavController(view).popBackStack();
             }
         });
     }

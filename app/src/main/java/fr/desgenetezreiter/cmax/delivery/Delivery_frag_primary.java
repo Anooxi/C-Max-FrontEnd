@@ -76,7 +76,7 @@ public class Delivery_frag_primary extends Fragment implements RecycleViewOnClic
                 handler.postDelayed(this,15000);
                 OrderViewModel.getOrders();
             }
-        }, 15000);
+        }, 0);
     }
 
     @Override

@@ -58,15 +58,15 @@ public class OrderViewModel extends ViewModel {
             public void onResponse(Call<OrderResult> call, Response<OrderResult> response) {
                 if(response.isSuccessful()){
                     currentOrders.getValue().add(response.body());
-                    setSuccess(true);
+                    setSuccess(Boolean.TRUE);
                 } else {
-                    setSuccess(false);
+                    setSuccess(Boolean.FALSE);
                 }
             }
 
             @Override
             public void onFailure(Call<OrderResult> call, Throwable t) {
-                setSuccess(false);
+                setSuccess(Boolean.FALSE);
             }
         });
     }
@@ -116,13 +116,15 @@ public class OrderViewModel extends ViewModel {
     public static MutableLiveData<Boolean> getSuccess() {
         if(OrderViewModel.success == null){
             OrderViewModel.success = new MutableLiveData<>();
+            OrderViewModel.success.setValue(Boolean.FALSE);
         }
-        return success;
+        return OrderViewModel.success;
     }
 
     public static void setSuccess(Boolean success) {
         if(OrderViewModel.success == null){
             OrderViewModel.success = new MutableLiveData<>();
+            OrderViewModel.success.setValue(Boolean.FALSE);
         }
         OrderViewModel.success.setValue(success);
     }
